@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="application-name" content="PaperGenAI" />
+  <meta name="theme-color" content="#007AFF" />
+  <meta name="robots" content="index, follow" />
+  <title>PaperGenAI — Free AI Exam Paper Generator for Punjab Board Students (Class 9-12)</title>
+  <meta name="description"
+    content="PaperGenAI se Punjab Board (PCTB) Class 9-12 ke exam papers AI se generate karein. Free MCQs, short/long questions, no signup, no fees, fast practice for Lahore, Faisalabad, Sahiwal, Multan, aur Punjab boards." />
+  <meta name="keywords"
+    content="PaperGenAI, Punjab Board, PCTB, AI exam paper generator, Class 9, Class 10, Class 11, Class 12, BISE Lahore, exam preparation" />
+  <link rel="canonical" href="https://paper-genai.lovable.app/" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <meta property="og:title" content="PaperGenAI — Free AI Exam Paper Generator for Punjab Board Students" />
+  <meta property="og:description"
+    content="Generate Punjab Board (PCTB) exam papers instantly using AI. Free Class 9-12 papers in board style with MCQs, short questions, long questions, no signup." />
+  <meta property="og:url" content="https://paper-genai.lovable.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://paper-genai.lovable.app/assets/hero.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <!-- Immediately apply theme to prevent FOUC -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme') || 'dark';
+      if (t === 'dark') document.documentElement.classList.add('dark');
+      var bg = t === 'dark'
+        ? "url('/assets/bg-image-night.jpg')"
+        : "url('/assets/bg-image-day.jpg')";
+      document.write('<style>html{background-image:' + bg + ';background-size:cover;background-position:center top;background-repeat:no-repeat;background-attachment:fixed;min-height:100vh;}body{background-image:' + bg + ';background-size:cover;background-position:center top;background-repeat:no-repeat;background-attachment:fixed;}</style>');
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PaperGenAI",
+    "url": "https://paper-genai.lovable.app/",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PKR" }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════
+     APP CONTAINER
+══════════════════════════════════════════════════ -->
+  <div class="app-container">
+
+    <!-- ── PANEL: HOME ────────────────────────────── -->
+    <section id="panel-home" class="panel active" aria-label="Home">
+
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+        <div>
+          <h1 class="home-greeting font-display">📚 PaperGenAI</h1>
+          <p class="home-subtitle">Punjab Board ke liye AI paper generator</p>
+        </div>
+        <img src="assets/favicon.png" alt="PaperGenAI logo" width="48" height="48"
+          style="border-radius:0.75rem;box-shadow:0 4px 14px rgba(0,122,255,0.3);"
+          onerror="this.style.display='none'" />
+      </div>
+
+      <!-- Stats -->
+      <div class="stat-row">
+        <div class="stat-card glass-card animate-fade-in-up">
+          <div class="stat-value" id="statPapers">0</div>
+          <div class="stat-label">Papers Saved</div>
+        </div>
+        <div class="stat-card glass-card animate-fade-in-up" style="animation-delay:80ms;">
+          <div class="stat-value" id="statSession" style="font-size:1.25rem;">0 min</div>
+          <div class="stat-label">Study Session</div>
+        </div>
+      </div>
+
+      <!-- Quick Start Cards -->
+      <h2 class="section-title" style="margin-top:1.5rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+        </svg>
+        Quick Start
+      </h2>
+      <div class="quick-start-grid">
+        <div class="quick-card glass-card animate-fade-in-up" style="animation-delay:100ms;" data-nav="chatbot"
+          role="button" tabindex="0" aria-label="Go to Study Chatbot">
+          <div class="qc-icon" style="background:rgba(0,122,255,0.1);">💬</div>
+          <h3>Study Chatbot</h3>
+          <p>Koi bhi sawal pucho, AI Urdu/English mein jawab dega.</p>
+          <div class="qc-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </div>
+        </div>
+        <div class="quick-card glass-card animate-fade-in-up" style="animation-delay:160ms;" data-nav="paper"
+          role="button" tabindex="0" aria-label="Go to Paper Generator">
+          <div class="qc-icon" style="background:rgba(168,85,247,0.1);">📄</div>
+          <h3>Paper Generator</h3>
+          <p>BISE board-style paper banao — MCQs, Short aur Long.</p>
+          <div class="qc-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </div>
+        </div>
+        <div class="quick-card glass-card animate-fade-in-up" style="animation-delay:220ms;" data-nav="quiz"
+          role="button" tabindex="0" aria-label="Go to Quiz">
+          <div class="qc-icon" style="background:rgba(16,185,129,0.1);">🎯</div>
+          <h3>MCQ Quiz</h3>
+          <p>Practice MCQs ke saath apni tyari check karo.</p>
+          <div class="qc-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </div>
+        </div>
+        <div class="quick-card glass-card animate-fade-in-up" style="animation-delay:280ms;" data-nav="history"
+          role="button" tabindex="0" aria-label="Go to History">
+          <div class="qc-icon" style="background:rgba(245,158,11,0.1);">📂</div>
+          <h3>Saved Papers</h3>
+          <p>Pehle generate kiye hue papers dekho ya print karo.</p>
+          <div class="qc-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boards strip -->
+      <div class="glass-card animate-fade-in-up" style="margin-top:1.5rem;animation-delay:320ms;text-align:center;">
+        <p class="text-xs text-muted"
+          style="margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Supported Boards
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.375rem;justify-content:center;">
+          <span class="badge-pill">BISE Lahore</span>
+          <span class="badge-pill">BISE Faisalabad</span>
+          <span class="badge-pill">BISE Sahiwal</span>
+          <span class="badge-pill">BISE Multan</span>
+          <span class="badge-pill">BISE Gujranwala</span>
+          <span class="badge-pill">BISE Rawalpindi</span>
+          <span class="badge-pill">BISE DG Khan</span>
+          <span class="badge-pill">BISE Sargodha</span>
+          <span class="badge-pill">BISE Bahawalpur</span>
+          <span class="badge-pill">FBISE</span>
+        </div>
+      </div>
+
+      <!-- Footer links -->
+      <div class="footer-links no-print" style="margin-top:1.5rem;">
+        <a href="#" data-modal="about">About</a>
+        <a href="#" data-modal="faq">FAQs</a>
+        <a href="#" data-modal="blog">Blog</a>
+        <a href="#" data-modal="contact">Contact</a>
+        <a href="#" data-modal="privacy">Privacy</a>
+        <a href="#" data-modal="terms">Terms</a>
+      </div>
+
+    </section>
+
+    <!-- ── PANEL: CHATBOT ─────────────────────────── -->
+    <section id="panel-chatbot" class="panel" aria-label="Study Chatbot">
+
+      <!-- Selection View -->
+      <div id="chatSelectView" class="chat-select-view">
+        <div class="animate-fade-in-up">
+          <h1 class="section-title font-display" style="font-size:1.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            Study Chatbot
+          </h1>
+          <p class="text-muted text-sm" style="margin-bottom:1.5rem;">Apni class aur subject choose karo phir koi bhi
+            sawal pucho</p>
+        </div>
+        <div class="glass-card animate-fade-in-up" style="animation-delay:80ms;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="chatClass">Class</label>
+              <select id="chatClass" class="glass-input">
+                <option>Class 9</option>
+                <option selected>Class 10</option>
+                <option>Class 11 (1st Year)</option>
+                <option>Class 12 (2nd Year)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="chatSubject">Subject</label>
+              <select id="chatSubject" class="glass-input">
+                <option>Physics</option>
+                <option>Chemistry</option>
+                <option>Biology</option>
+                <option>Mathematics</option>
+                <option>Computer Science</option>
+                <option>English</option>
+                <option>Urdu</option>
+                <option>Islamiat</option>
+                <option>Pakistan Studies</option>
+                <option>General Science</option>
+              </select>
+            </div>
+          </div>
+          <button id="chatStartBtn" class="btn-primary w-full" style="margin-top:0.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+            </svg>
+            Chat Shuru Karo
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Chat View -->
+      <div id="chatActiveView" class="chat-active-view glass-card" style="padding:0;overflow:hidden;">
+        <!-- Chat Header -->
+        <div class="chat-header">
+          <span id="chatHeaderInfo" class="chat-header-info">Class 10 • Physics</span>
+          <div class="chat-header-actions">
+            <button id="chatRefreshBtn" class="btn-icon-only" title="Naya session" aria-label="Refresh chat">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                <path d="M21 3v5h-5" />
+                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                <path d="M8 16H3v5" />
+              </svg>
+            </button>
+            <button id="chatChangeBtn" class="btn-outline btn-sm" aria-label="Change class/subject">Change</button>
+          </div>
+        </div>
+
+        <!-- Suggestion pills -->
+        <div id="chatPills" class="chat-pills no-print">
+          <button class="chat-pill" data-suggestion="Is chapter ka khulasa do">📝 Chapter Summary</button>
+          <button class="chat-pill" data-suggestion="Important definitions list karo">🔑 Definitions</button>
+          <button class="chat-pill" data-suggestion="MCQ practice questions banao">🎯 MCQ Practice</button>
+          <button class="chat-pill" data-suggestion="Short questions with answers do">❓ Short Questions</button>
+        </div>
+
+        <!-- Messages -->
+        <div id="chatBody" class="chat-body">
+          <div id="chatWelcome"
+            style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;color:var(--text-muted);gap:0.75rem;padding:2rem;">
+            <div
+              style="width:3.5rem;height:3.5rem;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--purple));display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px var(--accent-glow);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" style="width:1.75rem;height:1.75rem;">
+                <path
+                  d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+              </svg>
+            </div>
+            <div>
+              <p style="font-weight:600;color:var(--text-primary);font-size:1rem;">Salam! Main aapka study assistant
+                hun.</p>
+              <p class="text-sm" style="margin-top:0.25rem;">Koi bhi sawal pucho ya upar se choose karo</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input row -->
+        <div class="chat-input-row no-print">
+          <label for="chatInput" class="sr-only">Apna sawal likho</label>
+          <textarea id="chatInput" class="glass-input" placeholder="Apna sawal yahan likho..." rows="1"></textarea>
+          <button id="chatSendBtn" class="chat-send-btn" aria-label="Send message" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── PANEL: QUIZ ────────────────────────────── -->
+    <section id="panel-quiz" class="panel" aria-label="Quiz">
+
+      <!-- Select View -->
+      <div id="quizSelectView" class="quiz-view visible">
+        <h1 class="section-title font-display" style="font-size:1.5rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+            <path d="M12 17h.01" />
+          </svg>
+          MCQ Quiz
+        </h1>
+        <div class="glass-card animate-fade-in-up" style="position:relative;overflow:hidden;">
+          <div class="blob blob-1"></div>
+          <div class="blob blob-2"></div>
+          <div class="form-grid" style="position:relative;z-index:1;">
+            <div class="form-group">
+              <label for="quizClass">Class</label>
+              <select id="quizClass" class="glass-input">
+                <option>Class 9</option>
+                <option selected>Class 10</option>
+                <option>Class 11 (1st Year)</option>
+                <option>Class 12 (2nd Year)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="quizSubject">Subject</label>
+              <select id="quizSubject" class="glass-input">
+                <option>Physics</option>
+                <option>Chemistry</option>
+                <option>Biology</option>
+                <option>Mathematics</option>
+                <option>Computer Science</option>
+                <option>English</option>
+                <option>Urdu</option>
+                <option>Islamiat</option>
+                <option>Pakistan Studies</option>
+                <option>General Science</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="position:relative;z-index:1;">
+            <label>Kitne Questions?</label>
+            <div id="quizQtyRow" style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.25rem;">
+              <button class="qty-btn" data-qty="5">5</button>
+              <button class="qty-btn active" data-qty="10">10</button>
+              <button class="qty-btn" data-qty="15">15</button>
+              <button class="qty-btn" data-qty="20">20</button>
+            </div>
+          </div>
+          <button id="quizGenerateBtn" class="btn-primary w-full"
+            style="margin-top:0.75rem;position:relative;z-index:1;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+            Quiz Start Karo
+          </button>
+        </div>
+      </div>
+
+      <!-- Loading Overlay (inside quiz panel) -->
+      <div id="quizLoadingOverlay" class="paper-loading-overlay" style="display:none;">
+        <div class="paper-loading-card">
+          <div class="paper-loading-spinner">
+            <div class="pls-ring"></div>
+            <div class="pls-ring pls-ring-2"></div>
+            <div class="pls-ring pls-ring-3"></div>
+          </div>
+          <p id="quizLoadingText" class="paper-loading-text">Questions Generate Ho Rahe Hain...</p>
+          <div class="paper-loading-bar">
+            <div id="quizLoadingBarFill" class="paper-loading-bar-fill"></div>
+          </div>
+          <p id="quizLoadingSub" class="paper-loading-sub">AI PCTB syllabus se MCQs bana raha hai</p>
+        </div>
+      </div>
+
+      <!-- Active Quiz View -->
+
+      <!-- Active Quiz View -->
+      <div id="quizActiveView" class="quiz-view">
+        <!-- Progress -->
+        <div class="glass-card" style="margin-bottom:1rem;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+            <span id="quizProgressLabel" class="text-sm font-500" style="font-weight:600;">Question 1 of 10</span>
+            <span id="quizTimerLabel" class="text-sm text-muted"></span>
+          </div>
+          <div class="progress-track">
+            <div id="quizProgressFill" class="progress-fill" style="width:10%"></div>
+          </div>
+        </div>
+
+        <!-- Question -->
+        <div class="glass-card" style="margin-bottom:1rem;position:relative;overflow:hidden;">
+          <div class="blob blob-1" style="opacity:0.07;"></div>
+          <p id="quizQuestionText" style="font-size:1rem;font-weight:600;line-height:1.6;position:relative;z-index:1;">
+          </p>
+        </div>
+
+        <!-- Options -->
+        <div id="quizOptionList"></div>
+
+        <!-- Navigation -->
+        <div style="display:flex;gap:0.75rem;margin-top:0.5rem;" class="no-print">
+          <button id="quizPrevBtn" class="btn-outline flex-1" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1rem;height:1rem;">
+              <path d="m15 18-6-6 6-6" />
+            </svg>
+            Pehle
+          </button>
+          <button id="quizNextBtn" class="btn-primary flex-1">
+            Agla
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1rem;height:1rem;">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Results View -->
+      <div id="quizResultsView" class="quiz-view">
+        <div class="glass-card results-card" style="position:relative;overflow:hidden;">
+          <div class="blob blob-1"></div>
+          <div class="blob blob-2"></div>
+          <div style="position:relative;z-index:1;">
+            <div class="award-icon" id="quizAwardIcon">🏆</div>
+            <div class="score-display">
+              <span id="quizScoreNum">0</span><span class="score-of"> / <span id="quizScoreOf">10</span></span>
+            </div>
+            <p id="quizResultsMsg" class="results-msg">Shabash! Behtareen performance!</p>
+            <button id="quizRestartBtn" class="btn-primary" style="margin-top:0.5rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                <path d="M21 3v5h-5" />
+              </svg>
+              Dobara Khelein
+            </button>
+          </div>
+        </div>
+        <div class="quiz-breakdown" id="quizBreakdown"></div>
+      </div>
+
+    </section>
+
+    <!-- ── PANEL: PAPER GENERATOR ─────────────────── -->
+    <section id="panel-paper" class="panel" aria-label="Paper Generator">
+
+      <h1 class="section-title font-display" style="font-size:1.5rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+          <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+          <path d="M10 9H8" />
+          <path d="M16 13H8" />
+          <path d="M16 17H8" />
+        </svg>
+        Paper Generator
+      </h1>
+
+      <div class="paper-layout">
+
+        <!-- Loading Overlay (inside paper panel) -->
+        <div id="paperLoadingOverlay" class="paper-loading-overlay" style="display:none;">
+          <div class="paper-loading-card">
+            <div class="paper-loading-spinner">
+              <div class="pls-ring"></div>
+              <div class="pls-ring pls-ring-2"></div>
+              <div class="pls-ring pls-ring-3"></div>
+            </div>
+            <p id="paperLoadingText" class="paper-loading-text">Paper Generate Ho Raha Hai...</p>
+            <div class="paper-loading-bar">
+              <div id="paperLoadingBarFill" class="paper-loading-bar-fill"></div>
+            </div>
+            <p id="paperLoadingSub" class="paper-loading-sub">AI PCTB syllabus se questions bana raha hai</p>
+          </div>
+        </div>
+
+        <!-- Settings Column -->
+        <div class="glass-card animate-fade-in-up">
+          <h2 style="font-size:1rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="width:1rem;height:1rem;color:var(--accent);">
+              <path
+                d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+            </svg>
+            Paper Settings
+          </h2>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="paperClass">Class</label>
+              <select id="paperClass" class="glass-input">
+                <option>Class 9</option>
+                <option selected>Class 10</option>
+                <option>Class 11 (1st Year)</option>
+                <option>Class 12 (2nd Year)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="paperSubject">Subject</label>
+              <select id="paperSubject" class="glass-input">
+                <option>Physics</option>
+                <option>Chemistry</option>
+                <option>Biology</option>
+                <option>Mathematics</option>
+                <option>Computer Science</option>
+                <option>English</option>
+                <option>Urdu</option>
+                <option>Islamiat</option>
+                <option>Pakistan Studies</option>
+                <option>General Science</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="paperBoard">Board</label>
+              <select id="paperBoard" class="glass-input">
+                <option>BISE Lahore</option>
+                <option>BISE Faisalabad</option>
+                <option>BISE Sahiwal</option>
+                <option>BISE Multan</option>
+                <option>BISE Gujranwala</option>
+                <option>BISE Rawalpindi</option>
+                <option>BISE DG Khan</option>
+                <option>BISE Sargodha</option>
+                <option>BISE Bahawalpur</option>
+                <option>FBISE (Federal)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="paperType">Paper Type</label>
+              <select id="paperType" class="glass-input">
+                <option>MCQs Only</option>
+                <option>Short Questions Only</option>
+                <option>Long Questions Only</option>
+                <option selected>Full Paper (MCQs + Short + Long)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="paperLanguage">Language</label>
+              <select id="paperLanguage" class="glass-input">
+                <option>English</option>
+                <option>Urdu</option>
+                <option>Both (English &amp; Urdu)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="paperMarks">Total Marks</label>
+              <input id="paperMarks" type="number" min="10" max="200" value="75" class="glass-input" />
+            </div>
+          </div>
+
+          <!-- Number of Papers -->
+          <div class="form-group" style="margin-top:0.25rem;">
+            <label>Number of Papers</label>
+            <div style="display:flex;gap:0.5rem;margin-top:0.25rem;">
+              <button class="qty-btn active" data-papers="1">1</button>
+              <button class="qty-btn" data-papers="2">2</button>
+              <button class="qty-btn" data-papers="3">3</button>
+              <button class="qty-btn" data-papers="4">4</button>
+              <button class="qty-btn" data-papers="5">5</button>
+            </div>
+            <input type="hidden" id="paperCount" value="1" />
+          </div>
+
+          <!-- Chapters -->
+          <div style="margin-top:0.75rem;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.375rem;">
+              <label style="margin:0;display:flex;align-items:center;gap:0.375rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width:0.875rem;height:0.875rem;color:var(--accent);">
+                  <path d="M12 7v14" />
+                  <path
+                    d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+                </svg>
+                Chapters (PCTB Book)
+              </label>
+              <button id="paperResetChs"
+                style="background:none;border:none;cursor:pointer;font-size:0.75rem;color:var(--accent);text-decoration:underline;">All
+                Chapters</button>
+            </div>
+            <div id="chaptersWrap" class="chapter-wrap"></div>
+            <p id="chapterHint" class="text-xs text-muted" style="margin-top:0.375rem;">Puri book (All Chapters) select
+              ho gayi hai</p>
+          </div>
+
+          <!-- Extra instructions -->
+          <div class="form-group" style="margin-top:0.75rem;">
+            <label for="paperInstructions">Extra Instructions (optional)</label>
+            <textarea id="paperInstructions" class="glass-input" rows="2"
+              placeholder="e.g. Difficulty hard rakho, ya sirf numerical questions"></textarea>
+          </div>
+
+          <!-- Board template toggle -->
+          <label class="checkbox-wrap" style="margin-top:0.625rem;">
+            <input type="checkbox" id="paperTemplateCheck" checked />
+            <div>
+              <span id="paperTemplateLabel" style="font-weight:600;font-size:0.8125rem;">Use exact BISE Lahore
+                template</span>
+              <p class="text-xs text-muted">Header &amp; instructions board past papers jaise</p>
+            </div>
+          </label>
+
+          <!-- Generate button -->
+          <button id="paperGenerateBtn" class="btn-primary w-full" style="margin-top:1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+            </svg>
+            <span id="paperGenerateTxt">Generate 1 Paper</span>
+          </button>
+        </div>
+
+        <!-- Preview Column -->
+        <div class="glass-card animate-fade-in-up" style="animation-delay:100ms;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+            <h2 style="font-size:1rem;">Generated Papers</h2>
+            <div id="variantTabs" class="variant-tabs" style="display:none;"></div>
+          </div>
+
+          <!-- Empty State -->
+          <div id="previewEmpty" class="empty-state">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+            </svg>
+            <p style="font-weight:600;">Paper abhi nahi bana</p>
+            <p class="text-xs text-muted">Settings choose karo aur Generate pe click karo</p>
+          </div>
+
+          <!-- Filled preview -->
+          <div id="previewContent" class="hidden">
+            <div class="paper-actions no-print">
+              <button id="printBtn" class="btn-outline btn-sm" aria-label="Print paper">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width:0.875rem;height:0.875rem;">
+                  <polyline points="6 9 6 2 18 2 18 9" />
+                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                  <rect x="6" y="14" width="12" height="8" />
+                </svg>
+                Print
+              </button>
+              <button id="pdfBtn" class="btn-primary btn-sm" aria-label="Download PDF">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width:0.875rem;height:0.875rem;">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                PDF
+              </button>
+              <button id="saveHistoryBtn" class="btn-outline btn-sm" aria-label="Save to history">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  style="width:0.875rem;height:0.875rem;">
+                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+                  <polyline points="17 21 17 13 7 13 7 21" />
+                  <polyline points="7 3 7 8 15 8" />
+                </svg>
+                Save
+              </button>
+            </div>
+            <div id="a4Page" class="a4-scroll-wrap"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── PANEL: HISTORY ─────────────────────────── -->
+    <section id="panel-history" class="panel" aria-label="History">
+
+      <h1 class="section-title font-display" style="font-size:1.5rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 7v14" />
+          <path
+            d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+        </svg>
+        Saved Papers
+      </h1>
+
+      <!-- Empty state -->
+      <div id="historyEmpty" class="empty-state glass-card">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 7v14" />
+          <path
+            d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+        </svg>
+        <p style="font-weight:600;">Koi saved paper nahi</p>
+        <p class="text-xs text-muted">Paper generate karo aur "Save" button se yahan save karo</p>
+        <button class="btn-primary btn-sm" style="margin-top:0.75rem;" data-nav="paper">
+          Paper Generate Karo
+        </button>
+      </div>
+
+      <!-- History list -->
+      <div id="historyList" class="hidden"></div>
+
+    </section>
+
+    <!-- ── PANEL: SETTINGS ───────────────────────── -->
+    <section id="panel-settings" class="panel" aria-label="Settings">
+
+      <h1 class="section-title font-display" style="font-size:1.5rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+        Settings
+      </h1>
+
+      <div class="glass-card animate-fade-in-up" style="margin-bottom:0.75rem;">
+        <!-- Theme Toggle -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <h4>Dark Mode</h4>
+            <p id="themeSub">Raat wala dark theme on hai</p>
+          </div>
+          <div id="themeToggle" class="toggle on" role="switch" aria-checked="true" tabindex="0"
+            aria-label="Dark mode toggle">
+            <div class="knob"></div>
+          </div>
+        </div>
+
+        <!-- Reduce Motion Toggle -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <h4>Reduce Motion</h4>
+            <p>Animations aur transitions band karo</p>
+          </div>
+          <div id="motionToggle" class="toggle" role="switch" aria-checked="false" tabindex="0"
+            aria-label="Reduce motion toggle">
+            <div class="knob"></div>
+          </div>
+        </div>
+
+        <!-- Clear Cache -->
+        <div class="setting-row">
+          <div class="setting-info">
+            <h4>Clear Cache</h4>
+            <p>Saved papers aur settings clear karo</p>
+          </div>
+          <button id="clearCacheBtn" class="btn-outline btn-sm"
+            style="color:var(--red);border-color:var(--red);">Clear</button>
+        </div>
+      </div>
+
+      <!-- About info -->
+      <div class="glass-card animate-fade-in-up" style="animation-delay:80ms;text-align:center;">
+        <img src="assets/favicon.png" alt="PaperGenAI logo" width="48" height="48"
+          style="border-radius:0.75rem;margin:0 auto 0.75rem;box-shadow:0 4px 14px rgba(0,122,255,0.3);"
+          onerror="this.style.display='none'" />
+        <h3 class="font-display" style="font-size:1.125rem;">PaperGenAI v2.0</h3>
+        <p class="text-sm text-muted" style="margin-top:0.25rem;">Free AI-powered exam paper generator for Punjab Board
+          students.</p>
+        <div class="footer-links" style="margin-top:1rem;padding-bottom:0;">
+          <a href="#" data-modal="about">About</a>
+          <a href="#" data-modal="privacy">Privacy</a>
+          <a href="#" data-modal="contact">Contact</a>
+        </div>
+      </div>
+
+    </section>
+
+  </div><!-- end .app-container -->
+
+
+  <!-- ══════════════════════════════════════════════════
+     DOCK (Bottom Navigation)
+══════════════════════════════════════════════════ -->
+  <nav class="dock glass no-print" id="dock" aria-label="Main navigation">
+    <button class="dock-btn active" data-nav="home" aria-label="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+      <span>Home</span>
+    </button>
+    <button class="dock-btn" data-nav="chatbot" aria-label="Study Chatbot">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+      <span>Chat</span>
+    </button>
+    <button class="dock-btn" data-nav="quiz" aria-label="Quiz">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+        <path d="M12 17h.01" />
+      </svg>
+      <span>Quiz</span>
+    </button>
+    <button class="dock-btn" data-nav="paper" aria-label="Paper Generator">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+        <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+      </svg>
+      <span>Paper</span>
+    </button>
+    <button class="dock-btn" data-nav="history" aria-label="Saved Papers">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 7v14" />
+        <path
+          d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+      </svg>
+      <span>History</span>
+    </button>
+    <button class="dock-btn" data-nav="settings" aria-label="Settings">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+      <span>Settings</span>
+    </button>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════
+     TOAST STACK
+══════════════════════════════════════════════════ -->
+  <div id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+
+  <!-- ══════════════════════════════════════════════════
+     MODALS
+══════════════════════════════════════════════════ -->
+
+  <!-- About -->
+  <div class="overlay" id="modal-about" role="dialog" aria-modal="true" aria-label="About PaperGenAI">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <h2>📚 PaperGenAI ke Bare Mein</h2>
+      <p>PaperGenAI ek free AI-powered tool hai jo Punjab Board (PCTB) syllabus ke mutabiq Class 9, 10, 11, aur 12 ke
+        exam papers generate karta hai.</p>
+      <p>Hamara mission hai ke Pakistan ke har student ko — chahe woh kisi bhi economic background se ho — best quality
+        practice papers access kar sake. Koi signup nahi, koi fees nahi.</p>
+      <p><strong>Features:</strong></p>
+      <ul style="padding-left:1.25rem;color:var(--text-muted);font-size:0.9rem;line-height:1.8;">
+        <li>✅ AI Paper Generator (MCQs, Short, Long, Full Paper)</li>
+        <li>✅ Study Chatbot (Urdu, English, Roman Urdu)</li>
+        <li>✅ MCQ Quiz Practice</li>
+        <li>✅ All 9 Punjab BISE Boards + FBISE support</li>
+        <li>✅ PDF Download &amp; Print</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Blog -->
+  <div class="overlay" id="modal-blog" role="dialog" aria-modal="true" aria-label="Blog">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <h2>📝 Study Tips &amp; Blog</h2>
+      <p>Punjab Board exams ki tayyari ke liye expert tips aur strategies:</p>
+      <ul style="padding-left:1.25rem;color:var(--text-muted);font-size:0.9rem;line-height:2;">
+        <li>📅 <strong>Time Table Banao</strong> — 8 hafte pehle realistic schedule banao</li>
+        <li>📝 <strong>Past Papers Practice</strong> — Last 5 saal ke papers solve karo</li>
+        <li>🔑 <strong>Definitions Yaad Karo</strong> — Index cards se roz revision karo</li>
+        <li>⏱️ <strong>Timed Practice</strong> — 3 ghante mein paper complete karo</li>
+        <li>🔍 <strong>Kamzor Topics Focus</strong> — Weak chapters pe extra time do</li>
+        <li>💤 <strong>Neend Zaroor Lo</strong> — Memory consolidation ke liye zaroori hai</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="overlay" id="modal-faq" role="dialog" aria-modal="true" aria-label="Frequently Asked Questions">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <h2>❓ Frequently Asked Questions (FAQs)</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">📌 PaperGenAI kya hai aur yeh kaise kaam karta hai?</div>
+          <div class="faq-a">PaperGenAI ek free AI-powered tool hai jo Punjab Board (PCTB) syllabus ke mutabiq Class
+            9-12 ke exam papers generate karta hai. Aap class, subject, board, aur paper type select karte hain, phir AI
+            automatically MCQs, short questions, aur long questions ke saath ek authentic board-style paper bana deta
+            hai.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">💰 Kya PaperGenAI use karna bilkul free hai?</div>
+          <div class="faq-a">Haan! PaperGenAI bilkul free hai. Koi signup nahi, koi fees nahi, koi hidden charges nahi.
+            Aap unlimited papers generate kar sakte hain bina kisi payment ke.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">📚 Kin classes ke liye papers bana sakta hoon?</div>
+          <div class="faq-a">Aap Class 9, 10, 11 (1st Year), aur 12 (2nd Year) ke liye papers bana sakte hain. PCTB
+            syllabus ke mutabiq sabhi subjects available hain.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">🏫 Kin boards ke liye support hai?</div>
+          <div class="faq-a">Hum 9 Punjab BISE boards (Lahore, Faisalabad, Sahiwal, Multan, Gujranwala, Rawalpindi, DG
+            Khan, Sargodha, Bahawalpur) aur FBISE (Federal Board) ko support karte hain.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">📝 Kaise paper generate karein?</div>
+          <div class="faq-a">Home page se "Paper Generator" select karein, phir class, subject, board, paper type choose
+            karein, chapters select karein, aur "Generate" button dabayein. AI automatic paper bana de ga jise aap print
+            ya PDF download kar sakte hain.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">🤖 Study Chatbot kaise istemal karein?</div>
+          <div class="faq-a">Chatbot panel mein apni class aur subject select karein, phir "Chat Shuru Karo" dabayein.
+            Iske baad aap koi bhi sawal puch sakte hain — chapter summary, definitions, MCQs practice, ya short
+            questions — AI Urdu ya English mein jawab de ga.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">🎯 MCQ Quiz kaise khelein?</div>
+          <div class="faq-a">Quiz panel mein class aur subject choose karein, questions ki quantity select karein (5,
+            10, 15, 20), phir "Quiz Start Karo" dabayein. MCQs attempt karein aur natija dekhein. Behtareen score pe
+            confetti bhi aata hai!</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">📄 Kya generated paper ko PDF mein download kar sakta hoon?</div>
+          <div class="faq-a">Haan! Paper generate hone ke baad "PDF" button par click karein. Aap "Print" bhi kar sakte
+            hain. Paper A4 format mein white page par authentic board-style mein display hota hai.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">🌙 Day/Night theme kaise change karein?</div>
+          <div class="faq-a">Settings panel mein "Dark Mode" toggle par click karein. Day theme ke liye light mode aur
+            night theme ke liye dark mode select karein. Theme smooth crossfade ke saath change hota hai.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">📱 Kya yeh mobile par bhi kaam karta hai?</div>
+          <div class="faq-a">Bilkul! PaperGenAI fully responsive hai aur mobile, tablet, aur desktop sab par behtareen
+            kaam karta hai. Bottom dock navigation mobile-friendly hai.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="overlay" id="modal-contact" role="dialog" aria-modal="true" aria-label="Contact">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <h2>📧 Contact Us</h2>
+      <p>Koi sawaal, feedback, ya problem? Neeche form bharo aur send karo.</p>
+      <form id="contactForm" class="contact-form" onsubmit="handleContactSubmit(event)">
+        <div class="form-group">
+          <label for="contactName">Apna Naam</label>
+          <input id="contactName" type="text" class="glass-input" placeholder="e.g. Ahmad Khan" required />
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Email Address</label>
+          <input id="contactEmail" type="email" class="glass-input" placeholder="e.g. ahmad@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Message</label>
+          <textarea id="contactMessage" class="glass-input" rows="4" placeholder="Apna message yahan likho..."
+            required></textarea>
+        </div>
+        <button type="submit" id="contactSendBtn" class="btn-primary w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="width:1rem;height:1rem;">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+          Send Message
+        </button>
+      </form>
+      <div id="contactSuccess" class="contact-success" style="display:none;">
+        <div style="text-align:center;padding:1rem;">
+          <div style="font-size:3rem;margin-bottom:0.5rem;">✅</div>
+          <p style="font-weight:600;font-size:1rem;">Message bhej diya gaya!</p>
+          <p class="text-sm text-muted">Jald hi aapko jawab mile ga.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy -->
+  <div class="overlay" id="modal-privacy" role="dialog" aria-modal="true" aria-label="Privacy Policy">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <h2>🔒 Privacy Policy</h2>
+      <p>PaperGenAI aapki privacy ko serious leta hai.</p>
+      <p><strong>Data Collection:</strong> Hum koi personal data collect nahi karte. Aapki generated papers aur settings
+        sirf aapki device par local storage mein save hoti hain.</p>
+      <p><strong>API Requests:</strong> Chat aur paper generation requests AI API ko bheje jate hain — ye anonymous hote
+        hain aur koi identifying information nahi hoti.</p>
+      <p><strong>Cookies:</strong> Sirf theme aur settings preferences save karne ke liye localStorage use hoti hai.</p>
+      <p>Koi account nahi, koi login nahi, koi data share nahi.</p>
+    </div>
+  </div>
+
+  <!-- Terms -->
+  <div class="overlay" id="modal-terms" role="dialog" aria-modal="true" aria-label="Terms of Use">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <h2>📋 Terms of Use</h2>
+      <p>PaperGenAI use karke aap in terms se agree karte hain:</p>
+      <ul style="padding-left:1.25rem;color:var(--text-muted);font-size:0.9rem;line-height:2;">
+        <li>Ye tool sirf educational purposes ke liye hai</li>
+        <li>Generated papers practice ke liye hain — official exams ke liye PCTB materials use karein</li>
+        <li>Service ko abuse ya misuse karna mana hai</li>
+        <li>Hum AI-generated content ki 100% accuracy guarantee nahi karte</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Paper Viewer (History) -->
+  <div class="overlay" id="modal-paper-view" role="dialog" aria-modal="true" aria-label="View Paper">
+    <div class="modal-box" style="max-width:800px;width:95vw;">
+      <button class="modal-close" data-close-modal aria-label="Close">×</button>
+      <h2 id="paperViewTitle">Paper</h2>
+      <div id="paperViewContent" class="a4-scroll-wrap" style="margin-top:1rem;max-height:65vh;"></div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════
+     CDN SCRIPTS
+══════════════════════════════════════════════════ -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="/js/script.js"></script>
+
+</body>
+
+</html>

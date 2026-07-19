@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://paper-genai.vercelapp/sitemap.xml

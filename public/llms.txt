@@ -1,0 +1,12 @@
+# PaperAI
+
+> Free AI-powered paper generator and study tools for Punjab Board (Class 9-12) students in Pakistan.
+
+PaperAI helps students and teachers generate Board-style exam papers from any textbook, get instant study help in Urdu or English, and convert files locally in the browser.
+
+## Pages
+
+- [Home](/): Overview of PaperAI tools for Punjab Board students.
+- [Paper Generator](/paper): Upload a textbook PDF/DOCX and generate MCQs, Short and Long question papers in BISE Lahore, Faisalabad, Sahiwal, Multan and other Punjab Board formats.
+- [Study Chatbot](/chat): Ask any subject question (Math, Physics, Biology, Urdu, English) and get answers in Urdu, English or Roman Urdu.
+
