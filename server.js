@@ -5,8 +5,26 @@ require('dotenv').config();
 const { BOARD_TEMPLATES, renderTemplateBlueprint } = require('./boardTemplates');
 
 const app = express();
-app.use(cors());
+
+// Security: allow CORS only from trusted origins (prevents quota abuse from any website)
+const allowedOrigins = [
+  process.env.CORS_ORIGIN || 'https://paper-genai.vercel.app',
+];
+app.use(cors({
+  origin: function (origin, cb) {
+    // allow non-browser requests (no origin header)
+    if (!origin) return cb(null, true);
+    if (allowedOrigins.includes(origin)) return cb(null, true);
+
+    // Disallow everything else
+    return cb(new Error('Not allowed by CORS'));
+  },
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
 app.use(express.json({ limit: '50mb' }));
+
 
 const port = process.env.PORT || 3000;
 

@@ -208,9 +208,11 @@ function openModal(id) {
   if (!overlay) return;
 
   // Smooth modal open
+  overlay.classList.add('open');
   overlay.style.display = 'flex';
   overlay.style.opacity = '0';
   overlay.style.visibility = 'visible';
+
 
   const modalBox = overlay.querySelector('.modal-box');
   if (modalBox) {
@@ -248,6 +250,7 @@ function closeModal() {
     }
 
     setTimeout(() => {
+      overlay.classList.remove('open');
       overlay.style.display = '';
       overlay.style.opacity = '';
       overlay.style.visibility = '';
@@ -257,6 +260,7 @@ function closeModal() {
       }
     }, 300);
   });
+
 
   document.body.style.overflow = '';
 
