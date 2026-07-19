@@ -8,7 +8,7 @@ const app = express();
 
 // Security: allow CORS only from trusted origins (prevents quota abuse from any website)
 const allowedOrigins = [
-  process.env.CORS_ORIGIN || 'https://paper-genai.lovable.app',
+  process.env.CORS_ORIGIN || 'https://paper-genai.vercel.app',
 ];
 app.use(cors({
   origin: function (origin, cb) {
