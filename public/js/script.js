@@ -493,7 +493,11 @@ function initChatbot() {
     row.className = 'msg-row bot animate-fade-in-up';
     const bubble = document.createElement('div');
     bubble.className = 'msg-bubble';
-    bubble.innerHTML = marked.parse(html || '...');
+
+    const raw = marked.parse(html || '...');
+    // If DOMPurify is present, sanitize to prevent layout breaks/XSS.
+    bubble.innerHTML = (typeof DOMPurify !== 'undefined') ? DOMPurify.sanitize(raw) : raw;
+
     row.appendChild(bubble);
     chatBody.appendChild(row);
     chatBody.scrollTop = chatBody.scrollHeight;
