@@ -1430,6 +1430,16 @@ button:active:not(:disabled), .quick-card:active, .qty-btn:active, .ch-btn:activ
     border-radius: 1.25rem;
     transition: all 0.3s ease;
   }
+
+  /* Mobile: dock ke upar content chipakne se bachao */
+  .panel {
+    padding-bottom: 5.5rem;
+  }
+  #previewContent, #a4Page, #historyList, #chatBody {
+    max-height: calc(100vh - 18rem);
+    overflow-y: auto;
+  }
+
   .history-item {
     flex-direction: column;
     align-items: flex-start;
